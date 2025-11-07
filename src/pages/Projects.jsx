@@ -55,3 +55,59 @@ export default function Projects() {
                 className="w-full pl-12 pr-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
+                        {/* Category Filter */}
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-3">
+                Filtrar por Categoria
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors ${
+                      selectedCategory === category
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Results Count */}
+          <div className="mb-8">
+            <p className="text-muted-foreground">
+              {filteredProjects.length} projeto{filteredProjects.length !== 1 ? 's' : ''} encontrado{filteredProjects.length !== 1 ? 's' : ''}
+              {searchQuery && ` para "${searchQuery}"`}
+              {selectedCategory !== 'All Projects' && ` em "${selectedCategory}"`}
+            </p>
+          </div>
+
+          {/* Projects Grid */}
+          {filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-lg text-muted-foreground mb-4">
+                Nenhum projeto encontrado
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Tente ajustar seus filtros ou busca
+              </p>
+            </div>
+          )}
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
