@@ -3,7 +3,7 @@ import { ArrowRight, Code2, Lock, Zap, Shield, AlertTriangle, Eye } from 'lucide
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
-import { projects } from '../data/projects';
+import { projects } from '../data/project.js';
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);

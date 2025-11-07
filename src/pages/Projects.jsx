@@ -3,7 +3,7 @@ import { Search } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
-import { projects, categories } from '../data/projects';
+import { projects, categories } from '../data/project';
 
 export default function Projects() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -55,7 +55,8 @@ export default function Projects() {
                 className="w-full pl-12 pr-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
-                        {/* Category Filter */}
+
+            {/* Category Filter */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-3">
                 Filtrar por Categoria
