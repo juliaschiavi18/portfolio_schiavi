@@ -75,3 +75,67 @@ export default function Home() {
             </div>
           </div>
         </section>
+                {/* Skills Section */}
+        <section className="bg-card border-y border-border py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Minhas Especialidades
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {skills.map(({ icon: Icon, title, description }) => (
+                <div
+                  key={title}
+                  className="p-6 bg-background rounded-lg border border-border hover:border-primary transition-colors"
+                >
+                  <Icon className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-bold mb-2">{title}</h3>
+                  <p className="text-muted-foreground">{description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Projects Section */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Projetos em Destaque</h2>
+            <p className="text-lg text-muted-foreground">
+              Confira alguns dos meus trabalhos recentes em CyberSecurity e Desenvolvimento Seguro.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/projects" className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors font-medium inline-flex items-center gap-2 border border-border">
+              Ver Todos os Projetos
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="bg-primary text-primary-foreground py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Vamos Criar Algo Seguro e Incrível?
+            </h2>
+            <p className="text-lg mb-8 opacity-90">
+              Tenho interesse em projetos desafiadores que envolvam segurança. Vamos conversar!
+            </p>
+            <Link href="/contact" className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors font-medium inline-block">
+              Entrar em Contato
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
