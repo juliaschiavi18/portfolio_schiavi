@@ -96,4 +96,72 @@ export default function About() {
             </div>
           </div>
 
-        
+          {/* Experience Timeline */}
+          <div className="mt-20">
+            <h2 className="text-3xl font-bold mb-12">Experiência Profissional</h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: 'It Analyst & Application Security ',
+                  company: 'Porto ',
+                  period: 'Setembro 2025 - Presente',
+                  description:
+                    'Profissional responsável por garantir a segurança e a integridade das aplicações e sistemas de TI, identificando vulnerabilidades e implementando soluções para proteger dados e infraestruturas corporativas.',
+                },
+                {
+                  title: 'It Analyst - Nucleo ',
+                  company: 'Porto',
+                  period: 'Julho 2025 - Setembro 2025',
+                  description:
+                    'Profissional que analisa, mantém e otimiza sistemas e infraestruturas de TI, garantindo seu bom funcionamento, segurança e alinhamento com as necessidades do negócio.',
+                },
+               
+              ].map((exp, index) => (
+                <div
+                  key={index}
+                  className="pb-8 border-b border-border last:border-0"
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground">
+                        {exp.title}
+                      </h3>
+                      <p className="text-primary font-medium">{exp.company}</p>
+                    </div>
+                    <span className="text-sm text-muted-foreground">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground">{exp.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Certificados */}
+          <div className="mt-20">
+            <h2 className="text-3xl font-bold mb-12">Certificados</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { name: 'CyberSecurity - FIAP', year: '2025' },
+                { name: 'DevOps - FIAP', year: '2025' },
+                { name: 'Análise de Dados - Google', year: '2025' },
+                { name: 'Biohacking, Deep Web e Criptografia', year: '2025' },
+              ].map((cert, index) => (
+                <div
+                  key={index}
+                  className="p-4 bg-card border border-border rounded-lg"
+                >
+                  <p className="font-bold text-foreground">{cert.name}</p>
+                  <p className="text-sm text-muted-foreground">{cert.year}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
