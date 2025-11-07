@@ -48,3 +48,46 @@ export default function ProjectCard({ project }) {
         <p className="text-muted-foreground mb-4 line-clamp-2">
           {project.description}
         </p>
+                {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex gap-2">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ver projeto ${project.title} ao vivo`}
+              className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium text-sm flex items-center justify-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Ver Projeto
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ver código do projeto ${project.title} no GitHub`}
+              className="flex-1 px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors font-medium text-sm flex items-center justify-center gap-2 border border-border"
+            >
+              <Github className="w-4 h-4" />
+              Código
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
